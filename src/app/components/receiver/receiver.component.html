@@ -1,0 +1,19 @@
+<form [formGroup]="loginForm" (submit)="doCheck()">
+  <label>Enter the receiver's BIC:</label>
+  <input type="text" formControlName="email" placeholder="Enter BIC:" />
+  <button type="submit" >Authenticate</button>
+  <label>Account Holder's Name:</label>
+  <input type="text" formControlName="name" placeholder="Enter Account Holder's Name:" />
+  <button (click)="gotoTransaction()" >Next</button>
+</form>
+<div *ngIf="c else showmsg ">
+  <h4>This belongs to: </h4>
+  <h4>{{c.bankName}}</h4>
+  </div>
+
+  <ng-template #showmsg>
+      <h5>This BIC does not exist!
+      Please check the BIC!
+      Try Again!
+      </h5>
+  </ng-template>

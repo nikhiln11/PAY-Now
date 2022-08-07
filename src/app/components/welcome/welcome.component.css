@@ -1,0 +1,69 @@
+@import url("https://fonts.googleapis.com/css?family=Tangerine");
+@import url('https://fonts.googleapis.com/css2?family=Nunito:ital,wght@600,600&display=swap');
+@font-face {
+  font-family: Elianto;
+  src: url(./Elianto-Regular.ttf) format('truetype');
+}
+*
+{
+  margin:0;
+  padding:0;
+  box-sizing:border-box;
+  font-size: 100%;
+  font-family: "Elianto";
+
+  margin: auto;
+
+}
+.center {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 200px;
+}
+.font1
+{
+  font-family:Elianto;
+  font-size:20px;
+  padding: 32px 16px;
+  justify-content: center;
+  align-items: right;height: 200px;
+
+}
+.body
+{
+  display: flex;
+  box-shadow: 20px 20px 50px 15px rgb(33, 125, 230);
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  background: rgb(0, 0, 0);
+  overflow: hidden;
+  background-repeat: no-repeat;
+  background-color:black;
+  background-position: center;
+  background-size: cover;
+  background-image: url('./wallpaperflare.com_wallpaper.jpg');
+}
+.box h1
+{
+  color: white;
+  font-size: 5em;
+  text-align: center;
+  font-weight: 600;
+  letter-spacing: 0.1em;
+  text-shadow: 0 0 10px #00b3ff,
+               0 0 20px #00b3ff,
+               0 0 40px #00b3ff,
+               0 0 80px #00b3ff,
+               0 0 120px #00b3ff;
+}
+
+
+
+.j
+{
+  color: white;
+  font-family: 'swap', sans-serif;
+  text-shadow: 4px 4px 4px #aaa;
+}

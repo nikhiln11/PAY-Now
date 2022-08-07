@@ -1,0 +1,33 @@
+<link href="https://fonts.googleapis.com/css?family=Josefin+Sans" rel="stylesheet">
+<!-- Background & animion & navbar & title
+  <div class="container-fluid">
+ Background animtion
+    <div class="background">
+       <div class="cube"></div>
+       <div class="cube"></div>
+       <div class="cube"></div>
+       <div class="cube"></div>
+      <div class="cube"></div>
+    </div>-->
+
+<h6>Please authenticate yourself to initiate transaction!</h6>
+<form [formGroup]="loginForm" (submit)="doLogin()">
+  <label>Customer id:</label>
+  <input type="text" formControlName="email" placeholder="Enter Customer id" />
+  <button type="submit" >Authenticate</button>
+  <button  type="submit"  (click)="gotoReceiver()"  >Next</button>
+</form>
+<div *ngIf="c else showmsg ">
+<h4>Hi! {{c.accountHolderName}} </h4>
+<h4>Your Balance is:{{c.clearBalance}}</h4>
+<!-- <h4 *ngIf=" c.overDraft else #noOD">
+  you have an over-draft feature
+</h4> -->
+<ng-template #noOD >
+Sorry!You don't have an over-draft feature!
+</ng-template>
+</div>
+<ng-template #showmsg >
+  <h3>Customer id not found! Try Again</h3>
+</ng-template>
+
