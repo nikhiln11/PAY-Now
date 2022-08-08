@@ -1,1 +1,34 @@
-<p>transaction works!</p>
+<h5>Transfer Type:</h5>
+<div class="btn-group">
+  <button type="button" class="btn btn-primary dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+    Select one of types:
+  </button>
+  <div class="dropdown-menu">
+    <a class="dropdown-item" (click)="transType('Customer')">Customer</a>
+    <div class="dropdown-divider"></div>
+    <a class="dropdown-item" (click)="transType('Bank Transfer')">Bank Transfer</a>
+  </div>
+</div>
+<h5>Message Code:</h5>
+<div class="btn-group">
+  <button type="button" class="btn btn-primary dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+    Select a Message Code:
+  </button>
+  <div class="dropdown-menu" >
+    <a class="" class="dropdown-item"  title="Beneficiary customer must be paid by cheque only." (click)="msgCode('CHOB')" >CHOB </a>
+    <a class="dropdown-item"  title="Payment is made in settlement for a trade." (click)="msgCode('CORT')">CORT</a>
+    <a class="dropdown-item"  title="Beneficiary customer or claimant will call upon identification." (click)="msgCode('HOLD')">HOLD</a>
+    <a class="dropdown-item"  title="Payment between two companies that belongs to the same group." (click)="msgCode('INTC')">INTC</a>
+    <a class="dropdown-item"  title="Please advise the intermediary institution by phone." (click)="msgCode('PHOB')" >PHOB</a>
+    <a class="dropdown-item"  title="Please advise the intermediary by phone." (click)="msgCode('PHOI')" >PHOI</a>
+    <a class="dropdown-item"  title="Please advise the account with institution by phone." (click)="msgCode('PHON')" >PHON</a>
+    <a class="dropdown-item"  title="Payments has a related e-Payments reference." (click)="msgCode('REPA')" >REPA</a>
+    <div class="dropdown-divider"></div>
+    <a class="dropdown-item"  title="Payment must be executed with same day value." (click)="msgCode('SDVA')" >SDVA</a>
+  </div>
+</div>
+<form [formGroup]="loginForm" (submit)="doCheck()">
+  <h5>Enter Amount:</h5>
+  <input type="text" formControlName="amount" placeholder="Enter Amount:" /><br>
+  <button type="submit" class="btn btn-success ">Pay</button>
+</form>

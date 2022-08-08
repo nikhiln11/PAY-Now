@@ -7,6 +7,7 @@ import { HttpClient } from '@angular/common/http';
 })
 export class AuthenticateService {
   turnOn:boolean=false;
+  senderAccount!:any;
   public s: any;
   // public accDetails: Accountdetails[]=
   // [

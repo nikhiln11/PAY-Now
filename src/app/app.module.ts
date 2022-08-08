@@ -10,6 +10,7 @@ import { LoginComponent } from './components/login/login.component';
 import { HttpClientModule } from '@angular/common/http';
 import { ReceiverComponent } from './components/receiver/receiver.component';
 import { TransactionComponent } from './components/transaction/transaction.component';
+import { AfterPaymentComponent } from './components/after-payment/after-payment.component';
 
 @NgModule({
   declarations: [
@@ -19,7 +20,8 @@ import { TransactionComponent } from './components/transaction/transaction.compo
     SignupComponent,
     LoginComponent,
     ReceiverComponent,
-    TransactionComponent
+    TransactionComponent,
+    AfterPaymentComponent
   ],
   imports: [
     BrowserModule,

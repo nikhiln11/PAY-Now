@@ -31,7 +31,8 @@ export class LoginComponent implements OnInit {
       (data) => {
         this.c=data;
         console.log('Authentication Successful',data);
-        this.turnOn=true;
+        this.auth.senderAccount=data;
+        //this.turnOn=true;
         this.auth.turnOn=true;
       },
       (error) => {

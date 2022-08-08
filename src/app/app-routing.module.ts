@@ -1,6 +1,7 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { AppComponent } from './app.component';
+import { AfterPaymentComponent } from './components/after-payment/after-payment.component';
 import { LoginComponent } from './components/login/login.component';
 import { ReceiverComponent } from './components/receiver/receiver.component';
 import { SignupComponent } from './components/signup/signup.component';
@@ -14,7 +15,7 @@ const routes: Routes = [
 { path:'login',component:LoginComponent },
 { path:"receiver",component:ReceiverComponent,canActivate:[NextgaurdGuard]},
 { path:"transaction",component:TransactionComponent},
-
+{ path:"afterp", component:AfterPaymentComponent},
 
 ];
 @NgModule({
