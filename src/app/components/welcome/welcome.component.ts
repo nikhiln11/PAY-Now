@@ -18,7 +18,8 @@ export class WelcomeComponent implements OnInit {
   }
   gotologin()
   {
-    this.router.navigate(['/login']);
+
+    this.router.navigate(['/emplogin']);
   }
 
 }

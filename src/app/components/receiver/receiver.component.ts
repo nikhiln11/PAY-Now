@@ -24,6 +24,8 @@ export class ReceiverComponent implements OnInit {
   }
   doCheck() {
     const cId: any = this.loginForm.value.email;
+    if(this.loginForm.value.name)
+    this.auth.recName=this.loginForm.value.name;
     this.auth.authenticateBIC(cId)
      .subscribe(
        (data) => {

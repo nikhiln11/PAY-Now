@@ -11,6 +11,8 @@ import { HttpClientModule } from '@angular/common/http';
 import { ReceiverComponent } from './components/receiver/receiver.component';
 import { TransactionComponent } from './components/transaction/transaction.component';
 import { AfterPaymentComponent } from './components/after-payment/after-payment.component';
+import { ErrorPageComponent } from './components/error-page/error-page.component';
+import { EmpLoginComponent } from './components/emp-login/emp-login.component';
 
 @NgModule({
   declarations: [
@@ -21,7 +23,9 @@ import { AfterPaymentComponent } from './components/after-payment/after-payment.
     LoginComponent,
     ReceiverComponent,
     TransactionComponent,
-    AfterPaymentComponent
+    AfterPaymentComponent,
+    ErrorPageComponent,
+    EmpLoginComponent
   ],
   imports: [
     BrowserModule,

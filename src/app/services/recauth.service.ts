@@ -7,6 +7,7 @@ import { Router } from '@angular/router';
 })
 export class RecauthService {
   turnOn:boolean=false;
+  recName:string="";
 
   constructor(private router:Router,private httpClient: HttpClient) { }
   authenticateBIC(c:string)

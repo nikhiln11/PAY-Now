@@ -14,4 +14,14 @@ export type Sender= {
     clearBalance: number,
     overDraft: string
 };
+export type Payment = {
+  amountSent: number;
+  senderName: string;
+  receiverName:string;
+  payTime: string;
+  senderId: number;
+  messageCode: string;
+  transferTypes:string;
 
+
+}
