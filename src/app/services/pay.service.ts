@@ -6,11 +6,11 @@ import { Payment } from '../types';
   providedIn: 'root'
 })
 export class PayService {
-
+  
   constructor(private httpClient: HttpClient) { }
   payCheck(pay:Payment)
   {
     const url="http://localhost:8081/Pay";
-    return this.httpClient.post(url,pay);
+    this.httpClient.post(url,pay);
   }
 }
