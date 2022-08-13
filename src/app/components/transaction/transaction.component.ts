@@ -9,29 +9,36 @@ import { Payment, Sender } from 'src/app/types';
 @Component({
   selector: 'app-transaction',
   templateUrl: './transaction.component.html',
-  styleUrls: ['./transaction.component.css']
+  styleUrls: ['./transaction.component.css'],
+  providers: []
+
 })
 export class TransactionComponent implements OnInit {
-  public sendPay! : Payment;
+  public sendPay= new Payment;
   public transferType:string="";
   public mCode: string="";
   loginForm = new FormGroup({
-    amount: new FormControl(null, [Validators.required]),
+    amount: new FormControl(),
   });
-  constructor(private router:Router,private sender: AuthenticateService,private rec: RecauthService,private payz: PayService ) { }
+  constructor( private router:Router,private sender: AuthenticateService,private rec: RecauthService,private payz: PayService ) { }
   doCheck()
   {
+
     if(this.loginForm.value.amount)
     this.sendPay.amountSent= this.loginForm.value.amount;
-    this.sendPay.senderName=this.sender.senderAccount.accountHolderName;
-    this.sendPay.receiverName=this.rec.recName;
-    this.sendPay.senderId=this.sender.senderAccount.customerId;
+    console.log(this.sendPay.amountSent);
+     this.sendPay.senderName=localStorage.getItem("SenderName");
+    this.sendPay.receiverName=localStorage.getItem("ReceiverName");
+    this.sendPay.senderId=Number(localStorage.getItem("SenderAccount"));
     this.sendPay.messageCode=this.mCode;
     this.sendPay.transferTypes=this.transferType;
     let dateTime = new Date();
     const d=String(dateTime);
     this.sendPay.payTime=d;
-    this.payz.payCheck(this.sendPay);
+    //console.log(this.sendPay);
+    localStorage.setItem("Payment",JSON.stringify(this.sendPay));
+    //this.payz.payCheck(this.sendPay);
+    this.payz.afterPay=this.sendPay;
     this.router.navigate(['/afterp']);
 
   }

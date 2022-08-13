@@ -31,6 +31,8 @@ export class LoginComponent implements OnInit {
       (data) => {
         this.c=data;
         console.log('Authentication Successful',data);
+        localStorage.setItem("SenderName",this.c.accountHolderName);
+        localStorage.setItem("SenderAccount",this.c.customerId);
         this.auth.senderAccount=data;
         //this.turnOn=true;
         this.auth.turnOn=true;

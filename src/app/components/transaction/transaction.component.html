@@ -29,6 +29,6 @@
 </div>
 <form [formGroup]="loginForm" (submit)="doCheck()">
   <h5>Enter Amount:</h5>
-  <input type="text" formControlName="amount" placeholder="Enter Amount:" /><br>
+  <input type="number" formControlName="amount" placeholder="Enter Amount:" /><br>
   <button type="submit" class="btn btn-success ">Pay</button>
 </form>
