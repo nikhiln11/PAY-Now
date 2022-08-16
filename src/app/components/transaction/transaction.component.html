@@ -1,7 +1,7 @@
 <h5>Transfer Type:</h5>
 <div class="btn-group">
   <button type="button" class="btn btn-primary dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-    Select one of types:
+    {{transferType}}
   </button>
   <div class="dropdown-menu">
     <a class="dropdown-item" (click)="transType('Customer')">Customer</a>
@@ -12,7 +12,7 @@
 <h5>Message Code:</h5>
 <div class="btn-group">
   <button type="button" class="btn btn-primary dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-    Select a Message Code:
+    {{mCode}}
   </button>
   <div class="dropdown-menu" >
     <a class="" class="dropdown-item"  title="Beneficiary customer must be paid by cheque only." (click)="msgCode('CHOB')" >CHOB </a>

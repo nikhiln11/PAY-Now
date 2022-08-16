@@ -15,8 +15,8 @@ import { Payment, Sender } from 'src/app/types';
 })
 export class TransactionComponent implements OnInit {
   public sendPay= new Payment;
-  public transferType:string="";
-  public mCode: string="";
+  public transferType:string="Please Select a transfer Type";
+  public mCode: string="Please Select a Message Type";
   loginForm = new FormGroup({
     amount: new FormControl(),
   });

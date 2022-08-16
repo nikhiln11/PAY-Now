@@ -19,6 +19,8 @@ const routes: Routes = [
 { path:"receiver",component:ReceiverComponent,canActivate:[NextgaurdGuard]},
 { path:"transaction",component:TransactionComponent},
 { path:"afterp", component:AfterPaymentComponent},
+{ path:"error", component:ErrorPageComponent},
+
 { path:"**", component:ErrorPageComponent}
 ];
 @NgModule({

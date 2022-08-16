@@ -16,6 +16,7 @@ export class NextgaurdGuard implements CanActivate {
     return true;}
     else
     {
+  alert("Customer Account Not Found! Try Again");
       this.router.navigate(['/login']);
     return false;
     }

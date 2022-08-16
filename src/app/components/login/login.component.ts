@@ -11,6 +11,7 @@ import { Sender } from 'src/app/types';
 })
 export class LoginComponent implements OnInit {
   public c!: any;
+  public isDisabled=true;
   public d=true;
   turnOn=false;
   loginForm = new FormGroup({
@@ -24,11 +25,19 @@ export class LoginComponent implements OnInit {
   {
     this.router.navigate(['/receiver']);
   }
+  checkData()
+  {
+
+
+
+  }
   doLogin() {
     const cId: any = this.loginForm.value.email;
     this.auth.authenticateCustomer(cId)
     .subscribe(
       (data) => {
+        if(data==null)
+        alert("Customer Account Not Found!Try Again");
         this.c=data;
         console.log('Authentication Successful',data);
         localStorage.setItem("SenderName",this.c.accountHolderName);
@@ -40,6 +49,7 @@ export class LoginComponent implements OnInit {
       (error) => {
         console.log('Authentication Failure', error);
         this.auth.turnOn=false;
+
       }
     );
   }

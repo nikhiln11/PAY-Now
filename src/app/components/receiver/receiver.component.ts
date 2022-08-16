@@ -19,8 +19,27 @@ export class ReceiverComponent implements OnInit {
 
   ngOnInit(): void {
   }
-  gotoTransaction()
+ showBankName()
   {
+    const cId: any = this.loginForm.value.email;
+    this.auth.authenticateBIC(cId)
+    .subscribe(
+      (data) => {
+       if(data==null)
+       alert("BIC Not Found! Please Try Again");
+         this.c=data;
+        console.log('BIC Authentication Successful',data);
+        if(this.loginForm.value.email)
+        localStorage.setItem("ReceiverBIC",this.loginForm.value.email);
+   //     this.turnOn=true;
+        this.auth.turnOn=true;
+    },
+      (error) => {
+        console.log('BIC Authentication Failure', error);
+        this.auth.turnOn=false;
+      }
+    );
+
 
   }
   doCheck() {
@@ -29,29 +48,17 @@ export class ReceiverComponent implements OnInit {
     this.auth.recName=this.loginForm.value.name;
       localStorage.setItem("ReceiverName",this.loginForm.value.name);
     }
-    this.auth.authenticateBIC(cId)
-     .subscribe(
-       (data) => {
-          this.c=data;
-         console.log('BIC Authentication Successful',data);
-         if(this.loginForm.value.email)
-         localStorage.setItem("ReceiverBIC",this.loginForm.value.email);
-    //     this.turnOn=true;
-         this.auth.turnOn=true;
-     },
-       (error) => {
-         console.log('BIC Authentication Failure', error);
-         this.auth.turnOn=false;
-       }
-     );
+    confirm("Please wait for 5 seconds while we are checking the name!");
      if(this.loginForm.value.name)
      this.nCheck.nameCheck(this.loginForm.value.name)
      .subscribe(
       (data)=>
       {
+        console.log(data);
         if(!data){
           if(this.loginForm.value.name)
         localStorage.setItem("ReceiverName",this.loginForm.value.name);
+        this.router.navigate(['/transaction']);
         }
         else
         alert("Sorry!This name is under terror list!");

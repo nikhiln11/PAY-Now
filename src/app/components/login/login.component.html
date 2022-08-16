@@ -13,11 +13,11 @@
 <h6>Please authenticate yourself to initiate transaction!</h6>
 <form [formGroup]="loginForm" (submit)="doLogin()">
   <label>Customer id:</label>
-  <input type="text" formControlName="email" placeholder="Enter Customer id" />
+  <input type="text" formControlName="email" placeholder="Enter Customer id" (ngModelChange)="checkData()"/>
   <button type="submit" >Authenticate</button>
   <button  type="submit"  (click)="gotoReceiver()"  >Next</button>
 </form>
-<div *ngIf="c else showmsg ">
+<div *ngIf="c">
 <h4>Hi! {{c.accountHolderName}} </h4>
 <h4>Your Balance is:{{c.clearBalance}}</h4>
 <!-- <h4 *ngIf=" c.overDraft else #noOD">
@@ -27,7 +27,8 @@
 Sorry!You don't have an over-draft feature!
 </ng-template>
 </div>
-<ng-template #showmsg >
+<!-- <div >
+<ng-template #showmsg [hidden]="isDisabled" >
   <h3>Customer id not found! Try Again</h3>
 </ng-template>
-
+</div> -->
