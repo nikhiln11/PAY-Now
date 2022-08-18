@@ -30,8 +30,10 @@ export class TransactionComponent implements OnInit {
      this.sendPay.senderName=localStorage.getItem("SenderName");
     this.sendPay.receiverName=localStorage.getItem("ReceiverName");
     this.sendPay.senderId=Number(localStorage.getItem("SenderAccount"));
+
     this.sendPay.messageCode=this.mCode;
     this.sendPay.transferTypes=this.transferType;
+    this.sendPay.receiverId = localStorage.getItem("ReceiverAccount") || '{}';
     let dateTime = new Date();
     const d=String(dateTime);
     this.sendPay.payTime=d;
@@ -39,6 +41,7 @@ export class TransactionComponent implements OnInit {
     localStorage.setItem("Payment",JSON.stringify(this.sendPay));
     //this.payz.payCheck(this.sendPay);
     this.payz.afterPay=this.sendPay;
+    localStorage.setItem("AfterPayment","true");
     this.router.navigate(['/afterp']);
 
   }

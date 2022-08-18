@@ -1,69 +1,167 @@
 @import url("https://fonts.googleapis.com/css?family=Tangerine");
-@import url('https://fonts.googleapis.com/css2?family=Nunito:ital,wght@600,600&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Nunito:ital,wght@600,600&display=swap");
 @font-face {
   font-family: Elianto;
-  src: url(./Elianto-Regular.ttf) format('truetype');
+  src: url(./Elianto-Regular.ttf) format("truetype");
 }
-*
-{
-  margin:0;
-  padding:0;
-  box-sizing:border-box;
-  font-size: 100%;
-  font-family: "Elianto";
 
-  margin: auto;
-
+body {
+  background-color: aliceblue;
+  height: 100vh;
 }
-.center {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  height: 200px;
+* {
+  padding: 0%;
+  margin: 0%;
+  font-family: "Times New Roman", Times, serif;
 }
-.font1
-{
-  font-family:Elianto;
-  font-size:20px;
-  padding: 32px 16px;
-  justify-content: center;
-  align-items: right;height: 200px;
-
-}
-.body
-{
-  display: flex;
-  box-shadow: 20px 20px 50px 15px rgb(33, 125, 230);
-  justify-content: center;
-  align-items: center;
-  min-height: 100vh;
-  background: rgb(0, 0, 0);
-  overflow: hidden;
-  background-repeat: no-repeat;
-  background-color:black;
-  background-position: center;
-  background-size: cover;
-  background-image: url('./wallpaperflare.com_wallpaper.jpg');
-}
-.box h1
-{
-  color: white;
-  font-size: 5em;
+.hi {
   text-align: center;
-  font-weight: 600;
-  letter-spacing: 0.1em;
-  text-shadow: 0 0 10px #00b3ff,
-               0 0 20px #00b3ff,
-               0 0 40px #00b3ff,
-               0 0 80px #00b3ff,
-               0 0 120px #00b3ff;
+  color: #000;
+  animation: head 1s linear backwards;
 }
 
+.container {
+  border: 5px solid #2f7b5f;
+  width: 500px;
+  height: 400px;
+  position: relative;
+  left: 30%;
+  top: 15%;
+  animation: box 1.5s linear backwards;
+  transition: 0.5s ease;
+}
+.btnDiv {
+  position: relative;
+  top: 70px;
+  left: 100px;
+}
 
+#btn {
+  outline: none;
+  border: 2px solid aliceblue;
+  padding: 5px 100px;
+  border-radius: 10px;
+  background-color: #2f7b5f;
+  color: #ffff;
+  font-size: 17px;
+  cursor: pointer;
+  transition: 0.5s;
+  animation: button 1s linear backwards;
+}
+#btn:hover {
+  border: 2px solid #fff;
+  letter-spacing: 0.5px;
+}
 
-.j
-{
-  color: white;
-  font-family: 'swap', sans-serif;
-  text-shadow: 4px 4px 4px #aaa;
+/* upper header*/
+header {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  position: fixed;
+  top: 0;
+  left: 0;
+  padding: 30px;
+}
+header img {
+  width: 80px;
+  cursor: pointer;
+  border: 4px solid #2f7b5f;
+  transition: 0.2s ease-in;
+  animation: logo 1.5s linear backwards;
+}
+header img:hover {
+  border: 6px solid #2f7b5f;
+}
+
+header nav ul {
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  list-style: none;
+}
+
+header nav ul li {
+  margin: 0 20px;
+  animation: navlink 0.3s linear backwards;
+  animation-delay: calc(0.4s * var(--i));
+}
+header nav ul li a {
+  font-size: 20px;
+  color: #2f7b5f;
+  transition: letter-spacing 0.2s;
+}
+
+header nav ul li a:hover {
+  letter-spacing: 1px;
+}
+
+@keyframes navlink {
+  0% {
+    transform: translateY(-150px) scale(0) rotate(10deg);
+  }
+  100% {
+    transform: translateY(15px) scale(1);
+  }
+}
+
+@keyframes logo {
+  0% {
+    transform: translateX(-200px);
+    border: 4px solid rgb(227, 227, 152);
+  }
+  50% {
+    transform: translatex(50px);
+    border: 4px solid rgb(227, 227, 152);
+  }
+  100% {
+    transform: translatex(0px);
+    color: #2f7b5f;
+  }
+}
+
+@keyframes box {
+  0% {
+    border: 5px solid pink;
+    color: #2f7b5f;
+  }
+  25% {
+    border: 5px solid rgb(179, 179, 167);
+    color: rgb(227, 227, 152);
+  }
+  50% {
+    border: 5px solid rgb(166, 167, 244);
+    color: rgb(166, 167, 244);
+  }
+  75% {
+    border: 5px solid rgb(243, 159, 159);
+    color: rgb(243, 159, 159);
+  }
+  100% {
+    border: 5px solid #2f7b5f;
+    color: #000;
+  }
+}
+
+@keyframes button {
+  0% {
+    transform: translateY(100px);
+    opacity: 0;
+  }
+  100% {
+    transform: translateY(0px);
+    opacity: 0.5;
+  }
+}
+
+@keyframes head {
+  0% {
+    transform: translateY(-100px);
+    opacity: 0;
+  }
+  100% {
+    transform: translateY(0px);
+    opacity: 0.7;
+  }
 }

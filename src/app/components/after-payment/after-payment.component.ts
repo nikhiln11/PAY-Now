@@ -13,6 +13,10 @@ export class AfterPaymentComponent implements OnInit {
   constructor(private router:Router,private tran: PayService) { }
 
   ngOnInit(): void {
+    localStorage.setItem("SenderPageAccess","false");
+    localStorage.setItem("ReceiverPageAccess","false");
+    localStorage.setItem("TransactionPageAccess","false");
+    
     let c:any;
 
     c=JSON.parse(localStorage.getItem('Payment') || '{}');
@@ -30,6 +34,9 @@ export class AfterPaymentComponent implements OnInit {
     );
   }
   ngonChange():void{}
-
+  gotoHome()
+  {
+    this.router.navigate(['/']);
+  }
 
 }

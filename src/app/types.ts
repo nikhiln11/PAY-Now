@@ -22,13 +22,19 @@ export class Payment{
   senderId: number=0;
   messageCode!: string;
   transferTypes!:string;
+  receiverId! : string ;
 };
 export class Transaction {
 
-	transactionId! : string;
-	messageCode! : string;
-	senderId! : number;
-	paymentStatus! : string;
-	paymentTime! : string;
-	transferType! : string;
+	transactionId!: string;
+	senderName!: string;
+	receiverName!: string;
+	messageCode!: string;
+	senderId!: number;
+	amountSent!: number;
+	paymentStatus!: string;
+	receiverId!: number;
+	senderAmountleft!: number;
+	paymentTime!: string;
+	transferType!: string;
 };

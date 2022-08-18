@@ -1,2 +1,29 @@
-<p>after-payment works!</p>
-<p>{{n}}</p>
+
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <link rel="stylesheet" href="after-payment.component.css">
+</head>
+<body>
+
+<h1>TRANSCATION REPORT</h1>
+<div class="conatainer">
+
+<p><b>Transaction id:</b>{{n.transactionId}}</p>
+<p><b>Message Code:</b>{{n.messageCode}}</p>
+<p><b>Sender Id:</b>{{n.senderId}}</p>
+<p><b>Payment Status:</b>{{n.paymentStatus}}</p>
+<p><b>Payment Time:</b>{{n.paymentTime}}</p>
+<p><b> Transfer Type:</b>{{n.transferType}}</p>
+<p><b> Reciver Id:</b>{{n.receiverId}}</p>
+<p><b>Sender Name:</b> {{n.senderName}}</p>
+<p><b>Reciver Name:</b> {{n.receiverName}}</p>
+<p><b>Amount Sent:</b>{{n.amountSent}}</p>
+<p><b>RemainigBalance:</b>{{n.senderAmountleft}}</p>
+</div>
+<button type="button" class="btn" (click)="gotoHome()">Go Home</button>
+</body>
+</html>

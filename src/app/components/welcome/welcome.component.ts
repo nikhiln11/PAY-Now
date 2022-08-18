@@ -11,15 +11,19 @@ export class WelcomeComponent implements OnInit {
   constructor(private router: Router) { }
 
   ngOnInit(): void {
+    localStorage.setItem("SenderPageAccess","false");
+    localStorage.setItem("ReceiverPageAccess","false");
+    localStorage.setItem("TransactionPageAccess","false");
+    localStorage.setItem('TransactionTable',"false");
+    localStorage.setItem('AfterPayment',"false");
   }
-  gotosignup()
-  {
+  gotosignup() {
     this.router.navigate(['/signup']);
   }
-  gotologin()
-  {
-
+  gotologin() {
     this.router.navigate(['/emplogin']);
   }
-
 }
+
+
+

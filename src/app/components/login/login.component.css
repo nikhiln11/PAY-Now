@@ -1,79 +1,175 @@
-.container-fluid{
-  height: 100%;
-  margin: 0;
-  padding: 0;
-  width: 100%;
-  background: #FFF;
-}
-/* ============= Animation background ========= */
-.background {
-  background: linear-gradient(132deg, #FC415A, #591BC5, #212335);
-  background-size: 400% 400%;
-  animation: Gradient 15s ease infinite;
-  position: relative;
+body {
+  background-color: aliceblue;
   height: 100vh;
-  width: 100%;
-  overflow: hidden;
-  padding:0;
-  margin:0px;
 }
-.cube {
-  position: absolute;
-  top: 80vh;
-  left: 45vw;
-  width: 10px;
-  height: 10px;
-  border: solid 1px #D7D4E4;
-  transform-origin: top left;
-  transform: scale(0) rotate(0deg) translate(-50%, -50%);
-  animation: cube 12s ease-in forwards infinite;
+.container {
+  border: 5px solid #2f7b5f;
+  width: 550px;
+  height: 350px;
+  position: relative;
+  top: 150px;
+  left: 30%;
+  transition: 0.5s ease;
+  padding: 10px;
+  animation: animate 0.4s linear backwards;
+  animation-delay: 0.2s;
 }
-.cube:nth-child(2n) {
-  border-color: #FFF ;
-}
-.cube:nth-child(2) {
-  animation-delay: 2s;
-  left: 25vw;
-  top: 40vh;
-}
-.cube:nth-child(3) {
-  animation-delay: 4s;
-  left: 75vw;
-  top: 50vh;
-}
-.cube:nth-child(4) {
-  animation-delay: 6s;
-  left: 90vw;
-  top: 10vh;
-}
-.cube:nth-child(5) {
-  animation-delay: 8s;
-  left: 10vw;
-  top: 85vh;
-}
-.cube:nth-child(6) {
-  animation-delay: 10s;
-  left: 50vw;
-  top: 10vh;
-}
-@keyframes Gradient {
+@keyframes animate {
   0% {
-    background-position: 0% 50%;
-  }
-  50% {
-    background-position: 100% 50%;
+    opacity: 0;
+    transform: translateY(-100px);
   }
   100% {
-    background-position: 0% 50%;
+    opacity: 1;
+    transform: translateY(0px);
   }
 }
-@keyframes cube {
-  from {
-    transform: scale(0) rotate(0deg) translate(-50%, -50%);
-    opacity: 1;
-  }
-  to {
-    transform: scale(20) rotate(960deg) translate(-50%, -50%);
+.container h2 {
+  text-align: center;
+}
+.container p {
+  text-align: center;
+}
+
+.custinp {
+  text-align: center;
+  position: relative;
+  left: 100px;
+  top: 20px;
+  width: 300px;
+  height: 50px;
+  border: 3px solid #2f7b5f;
+}
+
+/* =buttons*/
+.btnDiv {
+  position: relative;
+  left: 110px;
+}
+.btn2 {
+  padding: 7px 53px;
+}
+
+button {
+  outline: none;
+  border: 2px solid aliceblue;
+  padding: 7px 17px;
+  border-radius: 10px;
+  background-color: #2f7b5f;
+  color: #ffff;
+  font-size: 17px;
+  cursor: pointer;
+  transition: 0.5s;
+  animation: fadein 0.4s linear backwards;
+  animation-delay: 0.2s;
+  margin-top: 50px;
+}
+button:hover {
+  border: 2px solid black;
+  letter-spacing: 0.5px;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  text-transform: capitalize;
+  text-decoration: none;
+  font-family: Arial, Helvetica, sans-serif;
+}
+header {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  position: fixed;
+  top: 0;
+  left: 0;
+  padding: 30px;
+}
+header img {
+  width: 80px;
+  cursor: pointer;
+  border: 4px solid #2f7b5f;
+  transition: 0.2s ease-in-out;
+}
+header img:hover {
+  border: 6px solid #2f7b5f;
+}
+h6{
+  font-weight:900;
+}
+
+
+header nav ul {
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  list-style: none;
+}
+
+header nav ul li {
+  margin: 0 20px;
+  animation: navlink 0.3s linear backwards;
+  animation-delay: calc(0.4s * var(--i));
+  list-style: none;
+}
+header nav ul li a {
+  font-size: 18px;
+  color: #2f7b5f;
+  transition: letter-spacing 0.2s;
+}
+
+header nav ul li a:hover {
+  letter-spacing: 1px;
+}
+
+
+.error{
+  position: relative;
+  top:30px;
+  left:170px;
+}
+
+@keyframes fadein {
+  0% {
+    transform: translateY(-150px) scale(0) rotate(180deg);
     opacity: 0;
   }
+  100% {
+    transform: translateY(0px) scale(1) rotate(0deg);
+    opacity: 1;
+  }
 }
+
+@keyframes navlink {
+  0% {
+    transform: translateY(-150px) scale(0) rotate(10deg);
+  }
+  100% {
+    transform: translateY(15px) scale(1);
+  }
+}
+
+@keyframes logo {
+  0% {
+    transform: translateX(-200px);
+  }
+  50% {
+    transform: translatex(50px);
+  }
+  100% {
+    transform: translatex(0px);
+  }
+}
+
+@keyframes image {
+  0% {
+    transform: translateY(300px);
+  }
+  100% {
+    transform: translateY(0px);
+  }
+}
+
+

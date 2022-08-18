@@ -1,4 +1,247 @@
-<h5>Transfer Type:</h5>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+
+  <style>
+    .container2 {
+      width: 550px;
+      position: relative;
+      top: 70px;
+      left: 30%;
+    }
+    .progressbar {
+      counter-reset: step;
+    }
+    .progressbar li {
+      list-style-type: none;
+      width: 25%;
+      float: left;
+      font-size: 12px;
+      font-weight: 400;
+      position: relative;
+      right: 0px;
+
+      text-align: center;
+      text-transform: uppercase;
+      color: #7d7d7d;
+    }
+    .progressbar li:before {
+      width: 30px;
+      height: 30px;
+      content: counter(step);
+      counter-increment: step;
+      line-height: 30px;
+      border: 2px solid #7d7d7d;
+      display: block;
+      text-align: center;
+      margin: 0 auto 10px auto;
+      border-radius: 50%;
+      background-color: aliceblue;
+      z-index: 2;
+    }
+    .progressbar li:after {
+      width: 100%;
+      height: 2px;
+      content: "";
+      position: absolute;
+      background-color: "";
+      top: 15px;
+      left: -50%;
+      z-index: 1;
+      animation: anime 0.4s linear backwards;
+      animation-delay: 1s;
+    }
+
+    @keyframes anime {
+      0% {
+        width: 0%;
+      }
+      100% {
+        width: 100%;
+      }
+    }
+    .progressbar li:first-child:after {
+      content: none;
+    }
+    .progressbar li.active {
+      color: #2f7b5f;
+      content: none;
+    }
+    .progressbar li.current {
+      color: rgb(233, 127, 127);
+    }
+    .progressbar li.active:before {
+      border-color: #2f7b5f;
+    }
+    .progressbar li.current:before {
+      border-color: rgb(233, 127, 127);
+      animation: current 0.7s linear backwards;
+      animation-delay: 1s;
+    }
+    .progressbar li.active + li:after {
+      background-color: #2f7b5f;
+      content: "";
+      z-index: 0;
+    }
+
+    .current {
+      animation: current 0.7s linear backwards;
+      animation-delay: 1s;
+    }
+
+    @keyframes current {
+      0% {
+        border-color: black;
+        color: #000;
+      }
+      100% {
+        border-color: rgb(233, 127, 127);
+        color: rgb(233, 127, 127);
+      }
+    }
+  </style>
+  <body>
+    <header>
+      <a routerLink="empLogin"> <img src="./assets/images/PayNow.png" /></a>
+      <nav>
+        <ul>
+          <li style="--i: 1"><a routerLink="">Home</a></li>
+          <li style="--i: 1.5">
+            <!----->
+            <a routerLink="login">paynow</a>
+          </li>
+          <li style="--i: 2"><a routerLink="transaction">About</a></li>
+          <li style="--i: 3">
+            <a href="empLogin">Transcations And History</a>
+          </li>
+        </ul>
+      </nav>
+    </header>
+
+    <div>
+      <div class="container2">
+        <ul class="progressbar">
+          <li class="active">Login</li>
+          <li class="active" >Authenticate</li>
+          <li class="active" >Reciver Info</li>
+          <li class="current">Transfer & history</li>
+        </ul>
+      </div>
+
+      <div class="container">
+        <div class="msgtype">
+        <h5>Transfer Type:</h5>
+        <div class="btn-group">
+          <button
+            type="button"
+            class="btn dropdown-toggle"
+            data-toggle="dropdown"
+            aria-haspopup="true"
+            aria-expanded="false"
+          >
+            {{ transferType }}
+          </button>
+          <div class="dropdown-menu">
+            <a class="dropdown-item" (click)="transType('Customer')"
+              >Customer</a
+            >
+            <div class="dropdown-divider"></div>
+            <a class="dropdown-item" (click)="transType('Bank Transfer')"
+              >Bank Transfer</a
+            >
+          </div>
+        </div>
+        </div>
+        <h5>Message Code:</h5>
+        <div class="btn-group">
+          <button
+            type="button"
+            class="btn dropdown-toggle"
+            data-toggle="dropdown"
+            aria-haspopup="true"
+            aria-expanded="false"
+          >
+            {{ mCode }}
+          </button>
+          <div class="dropdown-menu">
+            <a
+              class=""
+              class="dropdown-item"
+              title="Beneficiary customer must be paid by cheque only."
+              (click)="msgCode('CHOB')"
+              >CHOB
+            </a>
+            <a
+              class="dropdown-item"
+              title="Payment is made in settlement for a trade."
+              (click)="msgCode('CORT')"
+              >CORT</a
+            >
+            <a
+              class="dropdown-item"
+              title="Beneficiary customer or claimant will call upon identification."
+              (click)="msgCode('HOLD')"
+              >HOLD</a
+            >
+            <a
+              class="dropdown-item"
+              title="Payment between two companies that belongs to the same group."
+              (click)="msgCode('INTC')"
+              >INTC</a
+            >
+            <a
+              class="dropdown-item"
+              title="Please advise the intermediary institution by phone."
+              (click)="msgCode('PHOB')"
+              >PHOB</a
+            >
+            <a
+              class="dropdown-item"
+              title="Please advise the intermediary by phone."
+              (click)="msgCode('PHOI')"
+              >PHOI</a
+            >
+            <a
+              class="dropdown-item"
+              title="Please advise the account with institution by phone."
+              (click)="msgCode('PHON')"
+              >PHON</a
+            >
+            <a
+              class="dropdown-item"
+              title="Payments has a related e-Payments reference."
+              (click)="msgCode('REPA')"
+              >REPA</a
+            >
+            <div class="dropdown-divider"></div>
+            <a
+              class="dropdown-item"
+              title="Payment must be executed with same day value."
+              (click)="msgCode('SDVA')"
+              >SDVA</a
+            >
+          </div>
+        </div>
+        <form [formGroup]="loginForm" (submit)="doCheck()">
+          <h5>Enter Amount:</h5>
+          <input
+            type="number"
+            formControlName="amount"
+            placeholder="Enter Amount:"
+          /><br />
+          <br />
+          <button type="submit" class="btn btn-success">Pay</button>
+        </form>
+      </div>
+    </div>
+  </body>
+</html>
+
+<!-- <h5>Transfer Type:</h5>
 <div class="btn-group">
   <button type="button" class="btn btn-primary dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
     {{transferType}}
@@ -31,4 +274,4 @@
   <h5>Enter Amount:</h5>
   <input type="number" formControlName="amount" placeholder="Enter Amount:" /><br>
   <button type="submit" class="btn btn-success ">Pay</button>
-</form>
+</form> -->

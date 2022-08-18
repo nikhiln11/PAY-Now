@@ -1,19 +1,239 @@
-<form [formGroup]="loginForm" (submit)="doCheck()">
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link rel="stylesheet" href="receiver.component.css" />
+  </head>
+
+    <style>
+      .container2 {
+        width: 550px;
+        position: relative;
+        top: 70px;
+        left: 30%;
+      }
+      .progressbar {
+        counter-reset: step;
+      }
+      .progressbar li {
+        list-style-type: none;
+        width: 25%;
+        float: left;
+        font-size: 12px;
+        font-weight: 400;
+        position: relative;
+        right: 70px;
+
+        text-align: center;
+        text-transform: uppercase;
+        color: #7d7d7d;
+      }
+      .progressbar li:before {
+        width: 30px;
+        height: 30px;
+        content: counter(step);
+        counter-increment: step;
+        line-height: 30px;
+        border: 2px solid #7d7d7d;
+        display: block;
+        text-align: center;
+        margin: 0 auto 10px auto;
+        border-radius: 50%;
+        background-color: aliceblue;
+        z-index: 2;
+      }
+      .progressbar li:after {
+        width: 100%;
+        height: 2px;
+        content: "";
+        position: absolute;
+        background-color: "";
+        top: 15px;
+        left: -50%;
+        z-index: 1;
+        animation: anime 0.4s linear backwards;
+        animation-delay: 1s;
+      }
+
+      @keyframes anime {
+        0% {
+          width: 0%;
+        }
+        100% {
+          width: 100%;
+        }
+      }
+      .progressbar li:first-child:after {
+        content: none;
+      }
+      .progressbar li.active {
+        color: #2f7b5f;
+        content: none;
+      }
+      .progressbar li.current {
+        color: rgb(233, 127, 127);
+      }
+      .progressbar li.active:before {
+        border-color: #2f7b5f;
+      }
+      .progressbar li.current:before {
+        border-color: rgb(233, 127, 127);
+        animation: current 0.7s linear backwards;
+        animation-delay: 1s;
+      }
+      .progressbar li.active + li:after {
+        background-color: #2f7b5f;
+      }
+
+      .current {
+        animation: current 0.7s linear backwards;
+        animation-delay: 1s;
+      }
+
+      @keyframes current {
+        0% {
+          border-color: black;
+          color: #000;
+        }
+        100% {
+          border-color: rgb(233, 127, 127);
+          color: rgb(233, 127, 127);
+        }
+      }
+    </style>
+
+
+  <body >
+    <!-- <div id="loader"></div> -->
+    <div id="content">
+    <header>
+      <a routerLink="empLogin"> <img src="./assets/images/PayNow.png" /></a>
+      <nav>
+        <ul>
+          <li style="--i: 1"><a routerLink="">Home</a></li>
+          <li style="--i: 1.5">
+            <!----->
+            <a routerLink="login">paynow</a>
+          </li>
+          <li style="--i: 2"><a routerLink="transaction">About</a></li>
+          <li style="--i: 3">
+            <a href="empLogin">Transcations And History</a>
+          </li>
+        </ul>
+      </nav>
+  </header>
+    <div class="container2">
+      <ul class="progressbar">
+        <li class="active">Login</li>
+        <li class="active sec">Authenticate</li>
+        <li class="current">Reciver Info</li>
+        <li>Transfer</li>
+      </ul>
+    </div>
+
+    <div class="container">
+      <br />
+      <form [formGroup]="loginForm">
+        <label class="label1">Reciver's BIC :</label>
+
+        <input
+          type="text"
+          formControlName="email"
+          class="custinp inp1"
+          placeholder="Enter BIC:"
+        />
+
+        <button (click)="showBankName()" class="btn btn1 btn0">Check BIC</button><br />
+
+
+        <div *ngIf="loginForm.get('email')?.touched">
+
+          <h6 style="text-align:center;color:red;"> <small *ngIf="loginForm.get('email')?.hasError('required')">BIC is required</small></h6>
+
+          <small style="text-align:center;color:red;" *ngIf="loginForm.get('email')?.hasError('minlength')"
+          >Minimum
+          {{ loginForm.get("email")?.getError("minlength").requiredLength }}
+          characters is required</small
+        >
+        </div>
+        <label>Holder Name:</label>
+        <input
+        type="text"
+        formControlName="name"
+        class="custinp inp2"
+        placeholder="Enter Account Holder's Name:"
+      />
+
+        <button (click)="doCheck()" class="btn btn2">Authenticate Name</button>
+
+
+        <br />
+
+        <div class="btnDiv">
+          <label class="label2">Account NO:</label>
+          <input type="text" class="inp3"formControlName="recId" appNumbersOnly="14" placeholder="Enter Account Number:" />
+
+          <button type="submit" class="btn3" [disabled]="isDisabled1" (click)="goNext()">Next</button>
+          <div *ngIf="loginForm.get('recId')?.touched">
+
+            <small style="text-align:center;color:red;" *ngIf="loginForm.get('recId')?.hasError('required')">Receiver Account Number is required</small>
+
+            <small style="text-align:center;color:red;" *ngIf="loginForm.get('recId')?.hasError('minlength')">
+            {{ loginForm.get("recId")?.getError("minlength").requiredLength }}
+            characters are required</small>
+
+
+          </div>
+        </div>
+        <div *ngIf="c">
+          <h4>This belongs to:</h4>
+          <h4>{{ c.bankName }}</h4>
+        </div>
+      </form>
+    </div>
+  </div>
+  </body>
+</html>
+
+
+
+
+<!-- <div>
+<form [formGroup]="loginForm">
   <label>Enter the receiver's BIC:</label>
   <input type="text" formControlName="email" placeholder="Enter BIC:" />
+  <div *ngIf="loginForm.get('email')?.touched">
+
+    <small *ngIf="loginForm.get('email')?.hasError('required')">BIC is required</small>
+
+    <small *ngIf="loginForm.get('email')?.hasError('minlength')"
+    >Minimum
+    {{ loginForm.get("email")?.getError("minlength").requiredLength }}
+    characters is required</small
+  >
+  </div>
   <button (click)="showBankName()">Check BIC</button>
   <label>Account Holder's Name:</label>
   <input type="text" formControlName="name" placeholder="Enter Account Holder's Name:" />
-  <button type="submit" >Next</button>
-</form>
-<div *ngIf="c">
-  <h4>This belongs to: </h4>
-  <h4>{{c.bankName}}</h4>
+  <button (click)="doCheck()">Authenticate Name</button>
+  <input type="text" formControlName="recId" appNumbersOnly="14" placeholder="Enter Account Number:" />
+  <div *ngIf="loginForm.get('recId')?.touched">
+
+    <small *ngIf="loginForm.get('recId')?.hasError('required')">Receiver Account Number is required</small>
+
+    <small *ngIf="loginForm.get('recId')?.hasError('minlength')"
+    >Minimum
+    {{ loginForm.get("recId")?.getError("minlength").requiredLength }}
+    characters are required</small
+  >
   </div>
 
-  <!-- <ng-template #showmsg>
-      <h5>This BIC does not exist!
-      Please check the BIC!
-      Try Again!
-      </h5>
-  </ng-template> -->
+  <button (click)="goNext()" [disabled]="isDisabled1">Next</button>
+</form>
+</div>
+<div *ngIf="c">
+  <h4>Enetered Receiver's Bank is: </h4>
+  <h4>{{c.bankName}}</h4>
+  </div> -->

@@ -1,0 +1,24 @@
+.container
+{
+  border: 1px solid #2f7b5f;
+  padding:5px;
+  text-align: center;
+}
+
+p{
+  text-align: center;
+}
+h1{
+  text-align: center;
+}
+span{
+  position: relative;
+  left:100px;
+}
+
+.btn{
+  position: relative;
+  left:500px;
+  background-color: #2f7b5f;
+  color: black;
+}

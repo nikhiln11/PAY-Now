@@ -1,47 +1,152 @@
-<section class="vh-100 gradient-custom">
-  <div class="container py-5 h-100">
-    <div class="row d-flex justify-content-center align-items-center h-100">
-      <div class="col-12 col-md-8 col-lg-6 col-xl-5">
-        <div class="card bg-dark text-white" style="border-radius: 1rem;">
-          <div class="card-body p-5 text-center">
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Login Page</title>
+    <style>
+      .container2 {
+        width: 550px;
+        position: relative;
+        top: 70px;
+        left: 30%;
+      }
+      .progressbar {
+        counter-reset: step;
+      }
+      .progressbar li {
+        list-style-type: none;
+        width: 25%;
+        float: left;
+        font-size: 12px;
+        font-weight: 400;
+        position: relative;
+        text-align: center;
+        right: 40px;
+        text-transform: uppercase;
+        color: #7d7d7d;
+      }
+      .progressbar li:before {
+        width: 30px;
+        height: 30px;
+        content: counter(step);
+        counter-increment: step;
+        line-height: 30px;
+        border: 2px solid #7d7d7d;
+        display: block;
+        text-align: center;
+        margin: 0 auto 10px auto;
+        border-radius: 50%;
+        background-color: aliceblue;
+        z-index: 2;
+      }
+      .progressbar li:after {
+        width: 100%;
+        height: 2px;
+        content: "";
+        position: absolute;
+        background-color: "";
+        top: 15px;
+        left: -50%;
+        z-index: 1;
+        animation: anime 0.4s linear backwards;
+        animation-delay: 1s;
+      }
 
-            <div class="mb-md-5 mt-md-4 pb-5">
+      @keyframes anime {
+        0% {
+          width: 0%;
+        }
+        100% {
+          width: 100%;
+        }
+      }
+      .progressbar li:first-child:after {
+        content: none;
+      }
+      .progressbar li.active {
+        color: #2f7b5f;
+        content: none;
+      }
+      .progressbar li.current {
+        color: rgb(233, 127, 127);
+      }
+      .progressbar li.active:before {
+        border-color: #2f7b5f;
+      }
+      .progressbar li.current:before {
+        border-color: rgb(233, 127, 127);
+        animation: current 0.7s linear backwards;
+        animation-delay: 1s;
+      }
+      .progressbar li.active + li:after {
+        background-color: #2f7b5f;
+        content: "";
+        z-index: 0;
+      }
 
-              <h2 class="fw-bold mb-2 text-uppercase">Login</h2>
-              <p class="text-white-50 mb-5">Please enter your login and password!</p>
+      .current {
+        animation: current 0.7s linear backwards;
+        animation-delay: 1s;
+      }
 
-              <div class="form-outline form-white mb-4">
-                <label class="form-label" for="typeEmailX">Employee id:</label>
-                <input type="email" id="typeEmailX" class="form-control form-control-lg" placeholder="Employee ID"/>
+      @keyframes current {
+        0% {
+          border-color: black;
+          color: #000;
+        }
+        100% {
+          border-color: rgb(233, 127, 127);
+          color: rgb(233, 127, 127);
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <header>
+      <a routerLink="empLogin"> <img src="./assets/images/PayNow.png" /></a>
+      <nav>
+        <ul>
+          <li style="--i: 1"><a routerLink="">Home</a></li>
+          <li style="--i: 1.5">
+            <!----->
+            <a routerLink="login">paynow</a>
+          </li>
+          <li style="--i: 2"><a routerLink="">About</a></li>
+          <li style="--i: 3">
+            <a href="empLogin">Transcations And History</a>
+          </li>
+        </ul>
+      </nav>
+    </header>
 
-              </div>
-
-              <div class="form-outline form-white mb-4">
-                <label class="form-label" for="typePasswordX">Password:</label>
-                <input type="password" id="typePasswordX" class="form-control form-control-lg" placeholder="Password"/>
-
-              </div>
-
-              <p class="small mb-5 pb-lg-2"><a class="text-white-50" href="#!">Forgot password?</a></p>
-
-              <button class="btn btn-outline-light btn-lg px-5"  (click)="gotologin()" >Login</button>
-
-              <div class="d-flex justify-content-center text-center mt-4 pt-1">
-                <a href="#!" class="text-white"><i class="fab fa-facebook-f fa-lg"></i></a>
-                <a href="#!" class="text-white"><i class="fab fa-twitter fa-lg mx-4 px-2"></i></a>
-                <a href="#!" class="text-white"><i class="fab fa-google fa-lg"></i></a>
-              </div>
-
-            </div>
-
-            <div>
-              <p class="mb-0">Don't have an account? <a href="#!" class="text-white-50 fw-bold">Sign Up</a>
-              </p>
-            </div>
-
-          </div>
-        </div>
+    <form [formGroup]="loginForm" (submit)="gotologin()">
+      <div class="container2">
+        <ul class="progressbar">
+          <li class="current">Login</li>
+          <li class="">Authenticate</li>
+          <li>Reciver Info</li>
+          <li>Transfer</li>
+        </ul>
       </div>
-    </div>
-  </div>
-</section>
+      <div class="container">
+        <label class="lb1">Username : </label>
+        <input
+          type="text"
+          placeholder="Enter Username"
+          formControlName="name"
+          name="username"
+          required
+        />
+        <label>Password : </label>
+        <input
+          type="password"
+          formControlName="password"
+          placeholder="Enter Password"
+          name="password"
+          required
+        />
+        <button type="submit" class="btn btn-success">Login</button>
+      </div>
+    </form>
+  </body>
+</html>

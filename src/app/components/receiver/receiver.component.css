@@ -1,0 +1,132 @@
+body {
+  background-color: aliceblue;
+  height: 100vh;
+}
+.container {
+  border: 5px solid #2f7b5f;
+  width: 550px;
+  height: 350px;
+  position: relative;
+  top: 130px;
+
+  transition: 0.5s ease;
+  padding: 10px;
+}
+.container h2 {
+  text-align: center;
+}
+.container p {
+  text-align: center;
+}
+.btnDiv {
+  position: relative;
+  left: 120px;
+}
+#loader{
+	position: fixed;
+	width: 100%;
+	height: 100vh;
+	background: #21242d url('https://cssauthor.com/wp-content/uploads/2018/06/Bouncy-Preloader.gif') no-repeat center;
+	z-index: 999;
+}
+
+.custinp {
+  text-align: center;
+  position: relative;
+  left: 50px;
+  width: 250px;
+  height: 30px;
+  border: 3px solid #2f7b5f;
+  border-radius: 4px;
+}
+label {
+  color: #000;
+  font-style: capitalize;
+  font-weight: bold;
+}
+.label1{
+  position:relative;
+  right:180px;
+  top:30px;
+}
+
+.inp1 {
+  position: relative;
+  left: 130px;
+  margin-bottom: 20px;
+  top:-7px;
+}
+
+.btn1{
+position:relative;
+left:100px;
+}
+button {
+  outline: none;
+  border: 2px solid aliceblue;
+  padding: 7px 15px;
+  border-radius: 10px;
+  background-color: #2f7b5f;
+  color: #ffff;
+  font-size: 17px;
+  cursor: pointer;
+  transition: 0.5s;
+  animation: fadein 0.4 s linear backwards;
+  animation-delay: 0.4s;
+}
+
+button:hover {
+  border: 2px solid black;
+  letter-spacing: 0.5px;
+}
+.btn1 {
+  margin-left: 50px;
+}
+.btn0{
+  position:relative;
+  top:-10px;
+}
+.inp2{
+  width:150px;
+}
+.btn2{
+  position: relative;
+left:70px;
+top:-5px;
+}
+
+.label2{
+  top:10px;
+  position:relative;
+  right:120px;
+}
+.inp3{
+  position: relative;
+  right:80px;
+  top:6px;
+}
+.btn3{
+  padding:7px 25px;
+}
+header {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  position: fixed;
+  top: 0;
+  left: 0;
+  padding: 30px;
+}
+header img {
+  width: 80px;
+  cursor: pointer;
+  border: 4px solid #2f7b5f;
+  transition: 0.2s ease-in-out;
+  animation: logo 1.5s linear backwards;
+}
+header img:hover {
+  border: 6px solid #2f7b5f;
+}
+
+

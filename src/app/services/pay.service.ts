@@ -1,6 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { BehaviorSubject } from 'rxjs';
+import { BehaviorSubject, Observable } from 'rxjs';
 import { Payment, Transaction } from '../types';
 
 @Injectable({
@@ -12,10 +12,10 @@ export class PayService {
   afterPay=new Payment;
   currencyObservable = this.currencySubject.asObservable();
   constructor(private httpClient: HttpClient) { }
-  payCheck(pay:Payment)
+  payCheck(pay:Payment):Observable<Transaction>
   {
     const url="http://localhost:8081/Pay";
-    return this.httpClient.post(url,pay);
+    return this.httpClient.post<Transaction>(url,pay);
     //this.currencySubject.next(this.httpClient.post(url,pay));
     //this.code=this.httpClient.post<Transaction>(url,pay);
   }

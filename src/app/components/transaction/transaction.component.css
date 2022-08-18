@@ -1,3 +1,113 @@
+body {
+  background-color: aliceblue;
+  height: 100vh;
+}
 a:hover {
-  background-color: rgb(33, 185, 245);
+  background-color: #2f7b5f;
+  color: #000;
+}
+.container {
+  border: 5px solid #2f7b5f;
+  width: 550px;
+  height: 350px;
+  position: relative;
+  top: 150px;
+  left: auto;
+  transition: 0.5s ease;
+  padding: 10px;
+}
+
+button {
+  outline: none;
+  border: 2px solid aliceblue;
+  padding: 7px 25px;
+  background-color: #2f7b5f;
+  color: #ffff;
+  font-size: 17px;
+  cursor: pointer;
+  transition: 0.5s;
+  animation: fadein 0.4s linear backwards;
+  animation-delay: 0.2s;
+}
+button:hover {
+  border: 2px solid black;
+  letter-spacing: 0.5px;
+}
+
+header {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  position: fixed;
+  top: 0;
+  left: 0;
+  padding: 30px;
+}
+header img {
+  width: 80px;
+  cursor: pointer;
+  border: 4px solid #2f7b5f;
+  transition: 0.2s ease-in-out;
+  animation: logo 1.5s linear backwards;
+}
+header img:hover {
+  border: 6px solid #2f7b5f;
+}
+
+header nav ul {
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  list-style: none;
+}
+
+header nav ul li {
+  margin: 0 20px;
+  animation: navlink 0.3s linear backwards;
+  animation-delay: calc(0.4s * var(--i));
+}
+header nav ul li a {
+  font-size: 20px;
+  color: #2f7b5f;
+  transition: letter-spacing 0.2s;
+}
+
+header nav ul li a:hover {
+  letter-spacing: 1px;
+}
+
+.msgtype{
+  position: relative;
+  right:180px;
+}
+
+@keyframes navlink {
+  0% {
+    transform: translateY(-150px) scale(0) rotate(10deg);
+  }
+  100% {
+    transform: translateY(15px) scale(1);
+  }
+}
+
+@keyframes logo {
+  0% {
+    transform: translateX(-200px);
+  }
+  50% {
+    transform: translatex(50px);
+  }
+  100% {
+    transform: translatex(0px);
+  }
+}
+
+@keyframes image {
+  0% {
+    transform: translateY(300px);
+  }
+  100% {
+    transform: translateY(0px);
+  }
 }

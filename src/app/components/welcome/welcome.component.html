@@ -1,13 +1,36 @@
-<div class="body">
-  <div class="box">
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Welcome</title>
+  </head>
+  <body>
+    <header>
+      <img src="./assets/images/PayNow.png" />
+      <nav>
+        <ul>
+          <li style="--i: 1">
+            <a [routerLink]="[{ outlets: { popup: ['signup'] } }]">PayNow</a>
+          </li>
+          <li style="--i: 1.5"><a routerLink="bugu">Home</a></li>
+          <li style="--i: 2"><a routerLink="signup">About</a></li>
+          <li style="--i: 3"><a href="#">Transcations And History</a></li>
+        </ul>
+      </nav>
+    </header>
 
-    <h1 class="Hi">HI!</h1>
-      <h1 class="Hi">WELCOME TO PAYNOW</h1>
-      <div class="font1">
-    <button type="button"  (click)="gotosignup()" class="btn btn-success ">SIGN UP</button><br><br>
-    <button type="button" (click)="gotologin()" class="btn btn-primary ">LOG IN</button>
-  </div>
-  </div></div>
-
-
-
+    <div class="container">
+      <div class="box">
+        <h1 class="hi">WELCOME TO PAYNOW</h1>
+        <p style="text-align: center; font-size: 24px">
+          Start your <span style="color: #2f7b5f">Instant</span> transcation
+        </p>
+        <div class="btnDiv">
+          <br /><br />
+          <button type="button" id="btn" (click)="gotologin()">LOG IN</button>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>

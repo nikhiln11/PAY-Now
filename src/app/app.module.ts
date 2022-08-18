@@ -13,6 +13,11 @@ import { TransactionComponent } from './components/transaction/transaction.compo
 import { AfterPaymentComponent } from './components/after-payment/after-payment.component';
 import { ErrorPageComponent } from './components/error-page/error-page.component';
 import { EmpLoginComponent } from './components/emp-login/emp-login.component';
+import { TransactTableComponent } from './components/transact-table/transact-table.component';
+import { NumbersOnlyDirective } from './directives/numbers-only.directive';
+import { HomeComponent } from './components/home/home.component';
+import { BankleaveComponent } from './components/bankleave/bankleave.component';
+//import { NumonlyDirective } from './directives/numonly.directive';
 
 @NgModule({
   declarations: [
@@ -25,7 +30,12 @@ import { EmpLoginComponent } from './components/emp-login/emp-login.component';
     TransactionComponent,
     AfterPaymentComponent,
     ErrorPageComponent,
-    EmpLoginComponent
+    EmpLoginComponent,
+    TransactTableComponent,
+    NumbersOnlyDirective,
+    HomeComponent,
+    BankleaveComponent,
+  
   ],
   imports: [
     BrowserModule,

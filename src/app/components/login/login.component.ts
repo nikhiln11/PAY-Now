@@ -15,7 +15,7 @@ export class LoginComponent implements OnInit {
   public d=true;
   turnOn=false;
   loginForm = new FormGroup({
-    email: new FormControl(null, [Validators.required]),
+    email: new FormControl(null, [Validators.required,Validators.minLength(14)]),
   });
   constructor(private auth : AuthenticateService,private router: Router) { }
 
@@ -36,15 +36,18 @@ export class LoginComponent implements OnInit {
     this.auth.authenticateCustomer(cId)
     .subscribe(
       (data) => {
-        if(data==null)
-        alert("Customer Account Not Found!Try Again");
+        if(data==null){
+        alert("Customer Account Not Found!Try Again");}
+        else{
         this.c=data;
         console.log('Authentication Successful',data);
         localStorage.setItem("SenderName",this.c.accountHolderName);
         localStorage.setItem("SenderAccount",this.c.customerId);
+        localStorage.setItem("ReceiverPageAccess","true");
         this.auth.senderAccount=data;
+        this.isDisabled=false;
         //this.turnOn=true;
-        this.auth.turnOn=true;
+        this.auth.turnOn=true;}
       },
       (error) => {
         console.log('Authentication Failure', error);
